@@ -5,4 +5,4 @@
   
  ## 一. 工程化
  
- [RBAC权限管理模型](权限管理/auth.md)
+ [RBAC权限管理模型](frontend-study/blob/main/权限设计/auth.md)

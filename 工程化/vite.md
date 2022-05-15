@@ -2,15 +2,25 @@
 
 为了方便起见，我们在 package.json 文件里新加一些额外的选项，让项目启动和预览时自动打开浏览器，并将开发环境更改为 start
 
+![img](./img/1.png)
+
 然后在进入项目目录后安装依赖并启动，运行 yarn & yarn start , 启动之后由于添加了--open ，浏览器自动打开
+
+![img](./img/2.png)
 
 ## 2.1 修改 base 基础路径
 
 首先我们应该去关注项目的基础路径，先打开项目看一下图片资源的地址
 
+![img](./img/3.png)
+
 可以看到目前在开发环境下基础路径是/ ，但由于在服务器上，比如 linux 服务器上，根路径可能是 root ，应该修改为相对路径，打开 vite.config.ts , 添加 base
 
+![img](./img/4.png)
+
 之后运行打包命令并且预览 yarn build & yarn preview ，看一下是否配置成功
+
+![img](./img/5.png)
 
 可以看到打包后预览中图片的路径已经变成./ ，说明 base 基础路径配置成功
 
@@ -30,9 +40,13 @@ npm install @types/node --save-dev
 
 在 vite.config.ts 中添加四个别名`comp public assets` ，分别对应项目中的`component public assets` 三个路径
 
+![img](./img/6.png)
+
 注意这里如果是要引用静态资源的话必须以/ 开头
 
 接下来修改`helloword` 组件/的引入方式，看看配置成功了没有。将`./components` `修改为comp` ,同时把`img` 的引用路径从`./assets` 修改为`/assets`
+
+![img](./img/7.png)
 
 再打开页面看看，一切正常，说明配置`alias`成功
 
@@ -40,9 +54,16 @@ npm install @types/node --save-dev
 
 可以看到这里报了`ts` 和`vetur` 的错误
 
+![img](./img/8.png)
+
+
 我们在 ts 中也加入类型别名的配置
 
+![img](./img/9.png)
+
 看到剩下一个`vetur` 的报错
+
+![img](./img/10.png)
 
 在`vetur` 官方`issue` 中找到这么一段描述：
 
@@ -50,17 +71,25 @@ If you take a look at how Evan recently responded about the recommended approach
 
 官方推荐下载 volar 来代替 vetur ，简单来说 volar 就是 vetur 的升级版，之后重启 vscode ,所有 ts 和 vetur 类型报错全部解决。
 
+![img](./img/11.png)
+
 ## 2.4 打包目录优化
 
 我们先将现在的项目打包一下试试看，运行`yarn build` 命令
 
+![img](./img/12.png)
+
 这里可以看到资源全部被打包到了`assets` 下面，如果熟悉组件库或者脚手架打包产物的应该会知道 css js 和各种图片类型都应该分包去处理，我们在 vite 下可以做一下简单的配置
+
+![img](./img/13.png)
 
 这里对入口文件，打包文件，静态资源文件都做了配置，
 
 其他详情配置可以参考 rollup 文档：https://rollupjs.org/guide/en/#outputchunkfilenames
 
 然后再运行一下 yarn build 试试
+
+![img](./img/14.png)
 
 可以看到已经按我们想要的效果打包成功了。
 
@@ -75,9 +104,15 @@ If you take a look at how Evan recently responded about the recommended approach
 
 ---
 
+![img](./img/15.png)
+
 我们在代码里添加一下 console.log 测试一下
 
+![img](./img/16.png)
+
 然后执行`yarn build & yarn preview` 查看一下线上环境是否成功
+
+![img](./img/17.png)
 
 线上环境无 console.log ，配置成功。
 
@@ -85,9 +120,15 @@ If you take a look at how Evan recently responded about the recommended approach
 
 由于浏览器存在跨域问题，我们需要使用 node-proxy 来解决跨域访问问题，在 vite.config.ts 中进行配置
 
+![img](./img/18.png)
+
 接下来在代码中使用 Axios 进行访问尝试
 
+![img](./img/19.png)
+
 页面数据获取正常，配置完成
+
+![img](./img/20.png)
 
 ## 2.7 mock 数据配置
 
@@ -99,7 +140,11 @@ yarn add mockjs
 yarn add vite-plugin-mock -D
 ```
 
+![img](./img/21.png)
+
 接下来在文件中使用 Axios 请求./api/get ，数据 mock 成功
+
+![img](./img/22.png)
 
 ## 2.8 env 和 dep
 
@@ -119,15 +164,25 @@ yarn add vite-plugin-mock -D
 
 本地我们使用./api/get ，线上时我们使用线上环境的服务器地址，所以应该将/apiPro 映射到服务器地址，在 Proxy 中进行配置
 
+![img](./img/23.png)
+
 线上使用的 env 都是/apiPro ，在 Proxy 中帮我们映射到服务器的真实地址
 
 接下来我们可以通过 import.meta.env.VITE_BASE_URL 访问./api/get ，线上时会自动替换为服务器地址
+
+![img](./img/24.png)
+
+![img](./img/25.png)
 
 ## 2.9 静态资源图片处理
 
 先在 assets 目录下新建一个 img 的文件夹，放入一个体积比较大的图片来进行测试，当前图片是 411kb，已经算是挺大了
 
+![img](./img/26.png)
+
 运行一次打包命令看看
+
+![img](./img/27.png)
 
 可以看到当前图片很大并且并没有被处理
 
@@ -171,6 +226,8 @@ yarn add vite-plugin-imagemin -D
 
 接下来再打包试试看
 
+![img](./img/28.png)
+
 图片从 411kb 压缩到了 14kb，效果还是很显著的
 
 ## 2.10 开启 gzip 代码压缩
@@ -194,5 +251,9 @@ yarn add vite-plugin-compression -D
     }),
 
 然后尝试 build，可以看到在下面打包出来了 gzip 的资源
+
+![img](./img/29.png)
+
+![img](./img/30.png)
 
 这时候如果后端同时开启了 Gzip 压缩，那么浏览器会直接走 Gzip 包，提高传输效率

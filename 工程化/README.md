@@ -11,3 +11,19 @@
   自己搭建的Demo项目 --> 比较完善但可以优化的工程化项目[eggAdmin](http://www.eggadmin.com/#/) --> 更加完整和复杂的工程化项目 --> 线上项目
   
   -----
+
+# 目录
+ 
+ [Vite相关配置](工程化/vite.md)
+ 
+ Todo:
+ 
+ [Tailwind配置](工程化)
+ 
+ [Axios相关配置](工程化) 
+ 
+ [Vuex的理念和工作原理](工程化)
+ 
+ [Vue-router使用和配置](工程化)
+ 
+ [Eslint和Prettier配置代码规范](工程化)

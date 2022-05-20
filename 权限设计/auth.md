@@ -1,17 +1,3 @@
----
-id: auth
-title: RBAC权限设计模型
-# hide_title: false
-# hide_table_of_contents: false
-# sidebar_label: Markdown :)
-# custom_edit_url: https://github.com/facebook/docusaurus/edit/master/docs/api-doc-markdown.md
-description: RBAC权限设计模型
-keywords:
-  - JavaScript
-  - frontend
-# image: https://i.imgur.com/mErPwqL.png
----
-
 # 一. 什么是 RBAC
 
 RBAC（Role-Based Access Control）即基于角色的权限控制。通过角色关联用户，角色关联权限的方式赋予用户权限。
@@ -190,3 +176,5 @@ ACL 的语义可以由很多，以 RBAC 举例：
 在上面的 RBAC 路由权限中，以 button type 区分和以 user type 区分会有截然不同的效果，又例如在 Windows 文件安全系统中，以 file type 区分还是以 user type 来区分不同的 group 也会有截然不同的效果。
 
 不同场景下需要正确地围绕 users、roles、object types、policies 这些概念设计你的模型，就能避免大量问题。
+
+本文参考：[RBAC like it was meant to be](https://tailscale.com/blog/rbac-like-it-was-meant-to-be/)

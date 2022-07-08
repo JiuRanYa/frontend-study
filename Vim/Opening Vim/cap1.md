@@ -30,3 +30,27 @@ zz：jump to the middle of screen
 
 ### 5. Operations
 u: undo
+
+## 二.Customization
+
+### 1. usual customizing vim View
+
+relactivenumber:
+
+```
+:set relativenumber
+
+or
+
+:set rnu
+```
+
+## 三. Text maniputation
+
+S: delete all line and into insert mode
+
+t: find letter and move left side of the target
+
+number + j/k : jump (number) line
+
+{} : move to the next paragraph

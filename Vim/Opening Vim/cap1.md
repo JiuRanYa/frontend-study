@@ -51,6 +51,6 @@ S: delete all line and into insert mode
 
 t: find letter and move left side of the target
 
-number + j/k : jump (number) line
+number + j/k : jump (the number) line
 
 {} : move to the next paragraph

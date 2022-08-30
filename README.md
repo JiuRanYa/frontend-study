@@ -31,4 +31,4 @@
  
  ## 三. 技术设计
  
- [Desing a draggable、reuseable and virtual scroll table](技术设计/table.md)
+ [Desing a draggable、reuseable and virtual scroll table](技术设计/Table/table.md)

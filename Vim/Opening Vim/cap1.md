@@ -5,6 +5,9 @@ delete this line：
 dd：
 
 shift + v/V d
+
+D: delete after the cursor
+
 ### 2. Insert
 Four modes： 
 

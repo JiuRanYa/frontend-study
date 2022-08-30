@@ -14,7 +14,7 @@
 
 # 目录
  
- [Vite相关配置](工程化/vite.md)
+ [Vite相关配置](../工程化/vite.md)
  
  Todo:
  
